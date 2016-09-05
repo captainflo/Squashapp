@@ -1,3 +1,11 @@
+<% @customers.each do |customer| %>
+<a href="/customers/<%= customer.id%>"><%= customer.firstname %></a>
+<br>
+<% end %>
+<%= link_to 'New Customer', new_customer_path %>
+
+
+
 <h1>Dashboard</h1>
 
 <div class="row placeholders">

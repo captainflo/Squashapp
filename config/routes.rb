@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'dashboard', to: 'dashboard#index'
 
+  resources :customers, only: [:show, :new, :create, :edit, :update, :destroy]
+
+  get 'dashboard', to: 'dashboard#index'
+  
   get 'page/home'
 
   get 'page/about'
