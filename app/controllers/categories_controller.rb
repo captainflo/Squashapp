@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   before_action :authenticate_user!
 
   def index
@@ -7,6 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
+      params[:category][:price] = (params[:category][:price].to_d * 100).to_i
   current_company.categories.create category_params
     redirect_to "/dashboard"
   end

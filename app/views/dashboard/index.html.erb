@@ -43,6 +43,7 @@
         <td><a href="/customers/<%= customer.id%>">Edit</a></td>
       </tr>
       <% end %>
+        <%= paginate @customers %>
     </tbody>
   </table>
 </div>
@@ -65,7 +66,7 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.code %></td>
-        <td><%= category.price %></td>
+        <td><%= category.price.to_f / 100 %>$</td>
         <td><a href="/categories/<%= category.id%>">Edit</a></td>
       </tr>
       <% end %>
