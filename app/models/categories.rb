@@ -1,2 +1,0 @@
-class Categories < ApplicationRecord
-end

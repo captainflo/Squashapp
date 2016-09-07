@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    Customer.create customer_params
+    current_company.customers.create customer_params
     redirect_to "/dashboard"
   end
 
@@ -37,7 +37,8 @@ class CustomersController < ApplicationController
       :lastname,
       :tel,
       :address,
-      :email
+      :email,
+      :avatar,
     )
   end
 end

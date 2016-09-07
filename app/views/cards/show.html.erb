@@ -1,0 +1,22 @@
+<div class="container">
+<h2 class="form-signin-heading">New Edit</h2>
+
+<%= form_for @card  do |f| %>
+  <div class="field">
+  <%= f.label :customer_id %>
+  <%= f.text_field :customer_id, class: "form-control" %>
+  </div>
+  <br>
+  <div class="field">
+  <%= f.label :category_id %>
+  <%= f.text_field :category_id, class: "form-control" %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+</div>
+
+
+
+
+<%= link_to "Delete Card", card_path(@card), method: :delete, data: {confirm: 'Are you sure?'} %>

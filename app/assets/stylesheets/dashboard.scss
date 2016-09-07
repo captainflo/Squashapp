@@ -104,3 +104,24 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.button {
+  display: inline-block;
+	outline: none;
+	background: transparent;
+	border: 1px solid #d6dce0;
+	padding: .5em 1.5em;
+	border-radius: 1.5em;
+  margin-bottom: 40px;
+	&:hover {
+		border: 1px solid #33acb7;
+		color: #33acb7;
+		a {
+			color: #33acb7 !important;
+		}
+	}
+}
+
+.title_dash{
+  text-align: center;
+}

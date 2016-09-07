@@ -1,0 +1,17 @@
+<div class="container">
+<h2 class="form-signin-heading">New Card</h2>
+
+<%= form_for @card do |f| %>
+  <div class="field">
+  <%= f.label :customer_id %>
+  <%= f.text_field :customer_id, class: "form-control" %>
+  </div>
+  <br>
+  <div class="field">
+  <%= f.label :category_id %>
+  <%= f.text_field :category_id, class: "form-control" %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+</div>
