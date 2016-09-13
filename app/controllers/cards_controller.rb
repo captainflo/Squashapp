@@ -7,12 +7,15 @@ class CardsController < ApplicationController
   end
 
   def create
-  current_company.cards.create card_params
-    redirect_to "/dashboard"
+    @customer = Customer.find(params[:customer_id])
+    @customer.cards.create card_params
+    redirect_to "/dashboard", notice: "The card was successfully added."
   end
 
   def new
+    @customer = Customer.find(params[:customer_id])
     @card = Card.new
+    @all_categories = current_company.categories
     render 'cards/new'
   end
 
@@ -39,9 +42,7 @@ class CardsController < ApplicationController
 
   def card_params
     params.require(:card).permit(
-      :customer_id,
       :category_id
-
     )
   end
 end

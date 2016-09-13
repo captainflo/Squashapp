@@ -11,12 +11,12 @@
     <span class="text-muted"><a href="/users/<%= user.id%>">Edit</a></span>
 </div>
 <% end %>
+<%= paginate @users %>
   </div>
-
 <%= link_to 'New User', new_user_path, class:"button" %>
 
 <div class="table-responsive">
-  <h2>Liste Clients</h2>
+  <h2>List Customers</h2>
   <table class="table table-striped">
     <thead>
       <tr>

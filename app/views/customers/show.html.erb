@@ -22,8 +22,20 @@
       <%= f.label :avatar %>
       <%= f.file_field :avatar %>
       <br>
+
+
       <%= f.submit %>
     <% end %>
 <p><a href="/dashboard">Retourner au dashboard</a></p>
 
 <%= link_to "Delete Customer", customer_path(@customer), method: :delete, data: {confirm: 'Are you sure?'} %>
+
+<%= link_to 'New Card', new_customer_card_path(@customer), class:"button" %>
+
+<% if @cards.any? %>
+  <% @cards.each do |card| %>
+    <div><%= card.category.name %></div>
+    <% end %>
+<% else %>
+  <div>Pas de carte</div>
+<% end %>

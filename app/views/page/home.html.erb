@@ -1,61 +1,66 @@
-<section class="jumbotron text-xs-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">Album example</h1>
-    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-    <p>
-      <a href="#" class="btn btn-primary">Main call to action</a>
-      <a href="#" class="btn btn-secondary">Secondary action</a>
-    </p>
-  </div>
-</section>
-
-<div class="album text-muted">
-  <div class="container">
-
-    <div class="row">
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card">
-        <img data-src="holder.js/100px280/thumb" alt="Card image cap">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <%= image_tag "home1.jpeg", class:"first-slide" %>
+      <div class="container">
+        <div class="carousel-caption text-xs-left">
+          <h1>Welcome to Kasual</h1>
+          <p>The fist fitness where you can be a heros...</p>
+          <p><a class="btn btn-lg btn-primary" "title_home" href="#" role="button">Sign up today</a></p>
+        </div>
       </div>
     </div>
-
+    <div class="carousel-item">
+      <%= image_tag "home2.jpeg", class:"second-slide" %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Another example headline.</h1>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "home3.jpeg", class:"third-slide" %>
+      <div class="container">
+        <div class="carousel-caption text-xs-right">
+          <h1>Take another dimension.</h1>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!-- /.carousel -->
+<br>
 
+<h1 class="title_home">Programm Fitness</h1>
+<br>
+<div class="flipster">
+  <ul>
+    <li>
+    <%= image_tag "team1.jpg", class:"img_home"%><a class="link_carrousel" href="#">The Team</a></li>
+    <li><%= image_tag "home.jpg", class:"img_home" %><a class="link_carrousel" href="#">Musculation</a></li>
+    <li><%= image_tag "group.jpg", class:"img_home" %><a class="link_carrousel" href="#">Group Fitness</a></li>
+    <li><%= image_tag "coaching.jpg", class:"img_home" %><a class="link_carrousel" href="#">Coaching</a></li>
+    <li><%= image_tag "Biking.jpg", class:"img_home" %><a class="link_carrousel" href="#">Biking</a></li>
+    <li><%= image_tag "Cardio.jpg", class:"img_home" %><a class="link_carrousel" href="#">Cardio Training</a></li>
+  </ul>
+</div>
 <footer class="text-muted">
   <div class="container">
     <p class="pull-xs-right">

@@ -27,6 +27,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @cards = @customer.cards
   end
 
   private
@@ -39,6 +40,8 @@ class CustomersController < ApplicationController
       :address,
       :email,
       :avatar,
+      :card_id
+
     )
   end
 end
