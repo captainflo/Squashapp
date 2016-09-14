@@ -28,6 +28,10 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @cards = @customer.cards
+    @comments = @customer.comments
+    @comment = Comment.new
+
+
   end
 
   private
@@ -40,7 +44,7 @@ class CustomersController < ApplicationController
       :address,
       :email,
       :avatar,
-      :card_id
+      :card_id,
 
     )
   end

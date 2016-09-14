@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913083856) do
+ActiveRecord::Schema.define(version: 20160914092004) do
+
+  create_table "card_entries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "card_id"
+    t.index ["card_id"], name: "index_card_entries_on_card_id"
+  end
 
   create_table "cards", force: :cascade do |t|
     t.integer "customer_id"
@@ -22,11 +29,20 @@ ActiveRecord::Schema.define(version: 20160913083856) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "company_id"
     t.integer  "price"
+    t.integer  "nb_card_entries"
     t.index ["company_id"], name: "index_categories_on_company_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["customer_id"], name: "index_comments_on_customer_id"
   end
 
   create_table "companies", force: :cascade do |t|

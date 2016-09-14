@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <h2>List Customers</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Id</th>
+        <th>firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Tel</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= image_tag(customer.avatar.thumb.url) if customer.avatar? %></td>
+        <td><%= customer.id %></td>
+        <td><%= customer.firstname %></td>
+        <td><%= customer.lastname %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.tel %></td>
+        <td><a href="/customers/<%= customer.id%>">Edit</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

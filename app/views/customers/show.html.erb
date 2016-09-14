@@ -1,41 +1,76 @@
-<h1><%= @customer.firstname %></n>
-    <%= @customer.lastname %></h1>
+<div class="customer_title">
+  <h1><%= @customer.firstname %></n>
+  <%= @customer.lastname %></h1>
+</div>
 
-    <%= form_for @customer do |f| %>
+<div class="principal">
+  <div class="edit_profil">
+      <h1 class="customer_title">Edit Profil</h1>
+      <%= form_for @customer do |f| %>
+        <%= f.label :firstname %>
+        <%= f.text_field :firstname %>
+        <br>
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname %>
+        <br>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <br>
+        <%= f.label :tel %>
+        <%= f.telephone_field :tel %>
+        <br>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+        <br>
+        <div class="avatar_edit">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        </div>
+        <br>
+        <%= f.submit %>
+      <% end %>
+      <%= link_to "Delete Customer", customer_path(@customer), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </div>
 
-      <%= f.label :firstname %>
-      <%= f.text_field :firstname %>
-      <br>
-      <%= f.label :lastname %>
-      <%= f.text_field :lastname %>
-      <br>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <br>
-      <%= f.label :tel %>
-      <%= f.telephone_field :tel %>
-      <br>
-      <%= f.label :address %>
-      <%= f.text_field :address %>
-      <br>
-      <br>
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar %>
-      <br>
-
-
-      <%= f.submit %>
+  <div class="info_profil">
+    <h1 class="customer_title">Info Card(s)<h1>
+    <% if @cards.any? %>
+    <% @cards.each do |card| %>
+    <div class="text_cards"><%= card.category.name %></div>
     <% end %>
-<p><a href="/dashboard">Retourner au dashboard</a></p>
-
-<%= link_to "Delete Customer", customer_path(@customer), method: :delete, data: {confirm: 'Are you sure?'} %>
-
-<%= link_to 'New Card', new_customer_card_path(@customer), class:"button" %>
-
-<% if @cards.any? %>
-  <% @cards.each do |card| %>
-    <div><%= card.category.name %></div>
+    <% else %>
+    <div class="text_cards">Pas de carte</div>
     <% end %>
-<% else %>
-  <div>Pas de carte</div>
-<% end %>
+  </div>
+
+  <div class="new_card">
+    <%= link_to 'New Card', new_customer_card_path(@customer), class:"button" %>
+  </div>
+</div>
+
+<div class="principal_comment">
+
+  <div class="new_comment">
+    <%= form_for ([@customer, @comment]) do |f| %>
+      <h3 class="customer_title">New comment</h3>
+      <%= f.text_area :comment, required:"required", placeholder: "New comment...", class:"new_comment_text" %>
+      <p><%= f.submit "Add comment", class:"button" %><p>
+    <% end %>
+  </div>
+
+  <div class="comments">
+    <h3 class="customer_title"><%=@comments.count%> Comment(s)<h3>
+  <div class="comments_text">
+  <% @comments.each do |comment| %>
+  <%= comment.comment %>: <%= comment.created_at %>
+  <%= link_to customer_comment_path(@customer, comment), method: :delete, data: { confirm: 'Confirmer?' } do %>
+  delete
+  <br>
+  <% end %>
+  <% end %>
+  </div>
+  </div>
+
+</div>
+
+<a class="button" href="/dashboard">Retourner au dashboard</a>

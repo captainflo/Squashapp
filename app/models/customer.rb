@@ -8,4 +8,5 @@ class Customer < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   belongs_to :company
   has_many :cards
+  has_many :comments
 end
