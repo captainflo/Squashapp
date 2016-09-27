@@ -41,8 +41,8 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(
       :name,
       :code,
-      :price
-
+      :price,
+      :nb_card_entries
     )
   end
 end

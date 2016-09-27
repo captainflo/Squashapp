@@ -11,7 +11,6 @@
     <span class="text-muted"><a href="/users/<%= user.id%>">Edit</a></span>
 </div>
 <% end %>
-<%= paginate @users %>
   </div>
 <%= link_to 'New User', new_user_path, class:"button" %>
 
@@ -25,7 +24,6 @@
         <th>firstname</th>
         <th>Lastname</th>
         <th>Email</th>
-        <th>Address</th>
         <th>Tel</th>
         <th>Edit</th>
       </tr>
@@ -38,7 +36,6 @@
         <td><%= customer.firstname %></td>
         <td><%= customer.lastname %></td>
         <td><%= customer.email %></td>
-        <td><%= customer.address %></td>
         <td><%= customer.tel %></td>
         <td><a href="/customers/<%= customer.id%>">Edit</a></td>
       </tr>

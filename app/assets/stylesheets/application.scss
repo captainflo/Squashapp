@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require jquery-ui/datepicker
  */
 @import "bootstrap";
 @import "dashboard";
@@ -17,3 +18,57 @@
 @import "user";
 @import "devise";
 @import "customer";
+
+/*sidebar*/
+@media all and (min-width: 400px) and (max-width: 1087px){
+
+.nav-sidebar > li > a{
+  padding-left: 0px;
+  }
+}
+@media all and (min-width: 400px) and (max-width: 967px){
+
+.nav-sidebar > li > a {
+  font-size: 13px;
+  }
+}
+
+/*Dashbord*/
+@media (max-width: 768px){
+
+.offset-sm-3 {
+margin-left: 14px;
+margin-right: auto;
+}
+.col-sm-9 {
+    float:none;
+    width: auto;
+}
+}
+
+@media (max-width: 768px){
+  .title_dash{
+    margin-top:30px;
+  }
+}
+
+@media (max-width: 543px){
+  .title_dash{
+    margin-top:80px;
+  }
+}
+
+@media (max-width: 446px){
+  .title_dash{
+    margin-top:110px;
+  }
+}
+/*search*/
+@media (max-width: 768px){
+.pull-xs-right{
+  display: block;
+  margin-left: -1000px;
+  margin-top: 35px;
+}
+}
+/*Carousel_page*/

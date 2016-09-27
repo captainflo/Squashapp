@@ -2,6 +2,10 @@ class CustomersController < ApplicationController
 
   before_action :authenticate_user!
 
+  def index
+    @customers = Customer.all.order("created_at DESC")
+  end
+
   def create
     current_company.customers.create customer_params
     redirect_to "/dashboard"

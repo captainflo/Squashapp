@@ -14,5 +14,11 @@
 //= require jquery_ujs
 //= require tether
 //= require bootstrap-sprockets
+//= require jquery-ui/datepicker
+//= require jquery-ui/datepicker-fr
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('.datepicker').datepicker();
+});

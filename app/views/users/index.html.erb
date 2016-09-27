@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <h2>List Users</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Id</th>
+        <th>firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag(user.avatar.thumb.url) if user.avatar? %></td>
+        <td><%= user.id %></td>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.email %></td>
+        <td><a href="/users/<%= user.id%>">Edit</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

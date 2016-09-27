@@ -26,7 +26,6 @@
           <%= f.label :avatar %>
           <%= f.file_field :avatar %>
         </div>
-        <br>
         <%= f.submit %>
       <% end %>
       <%= link_to "Delete Customer", customer_path(@customer), method: :delete, data: {confirm: 'Are you sure?'} %>
@@ -36,7 +35,7 @@
     <h1 class="customer_title">Info Card(s)<h1>
     <% if @cards.any? %>
     <% @cards.each do |card| %>
-    <div class="text_cards"><%= card.category.name %></div>
+    <div class="text_cards"><%= link_to card.category.name, customer_card_path(@customer, card) %></div>
     <% end %>
     <% else %>
     <div class="text_cards">Pas de carte</div>

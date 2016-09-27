@@ -1,22 +1,19 @@
 <div class="container">
-<h2 class="form-signin-heading">New Edit</h2>
+<h2 class="form-signin-heading">Card</h2>
 
-<%= form_for @card  do |f| %>
-  <div class="field">
-  <%= f.label :customer_id %>
-  <%= f.text_field :customer_id, class: "form-control" %>
-  </div>
-  <br>
-  <div class="field">
-  <%= f.label :category_id %>
-  <%= f.text_field :category_id, class: "form-control" %>
-  </div>
-
-  <%= f.submit %>
-<% end %>
+<% (0... @card.category.nb_card_entries).each do |index| %>
+  <% if index < @card.card_entries.count %>
+    <%= form_for :card_entry, url: customer_card_card_entry_path(@customer, @card, @card.card_entries[index]), method: :put do |f|  %>
+      <%= f.text_field :checked_at, id: "card_entry_checked_at_#{index}", value: @card.card_entries[index].checked_at.strftime("%d/%m/%Y"), class:"datepicker" %>
+      <%= f.submit %>
+      <% end %>
+  <% else %>
+    <%= form_for :card_entry, url: customer_card_card_entries_path(@customer, @card), method: :post do |f|  %>
+      <%= f.text_field :checked_at, id: "card_entry_checked_at_#{index}", class:"datepicker" %>
+        <%= f.submit %>
+    <% end %>
+  <% end %>
+<% end  %>
 </div>
 
-
-
-
-<%= link_to "Delete Card", card_path(@card), method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to "Delete Card", customer_card_path(@customer, @card), method: :delete, data: {confirm: 'Are you sure?'} %>

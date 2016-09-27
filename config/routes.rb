@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :customers, only: [:show, :new, :create, :edit, :update, :destroy] do
-    resources :cards, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :customers, only: [:show, :new, :create, :edit, :update, :destroy,:index] do
+    resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] do
+      resources :card_entries, only: [:create, :update, :destroy]
+    end
     resources :comments, only: [:show, :new, :create, :edit, :update, :destroy]
   end
-  resources :users, only: [:show, :new, :edit, :destroy, :update]
-  resources :categories, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :users, only: [:show, :new, :edit, :destroy, :update, :index]
+  resources :categories, only: [:show, :new, :create, :edit, :update, :destroy, :index]
   post 'employees', to: 'users#create'
   get 'dashboard', to: 'dashboard#index'
 
